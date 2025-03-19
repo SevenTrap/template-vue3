@@ -8,7 +8,7 @@
       <div class="login-form-container">
         <div class="login-form">
           <label class="login-label" for="username">账号：</label>
-          <input id="username" v-model="formData.userName" placeholder="请输入账号" />
+          <input id="username" v-model="formData.username" placeholder="请输入账号" />
 
           <label class="login-label" for="password">密码：</label>
           <input
@@ -36,7 +36,7 @@ export default {
     return {
       systemTitle,
       formData: {
-        userName: "admin",
+        username: "admin",
         password: "123456",
       },
     };
@@ -44,10 +44,10 @@ export default {
 
   methods: {
     onSubmit() {
-      let userName = this.formData.userName.trim();
+      let username = this.formData.username.trim();
       let password = this.formData.password.trim();
 
-      if (userName == "" || password == "") {
+      if (username == "" || password == "") {
         this.$message({
           type: "warning",
           message: "请输入账号密码！",
@@ -58,6 +58,7 @@ export default {
       }
 
       setStorage("token", true);
+      setStorage("username", username);
 
       this.$router.push({
         path: "/",
@@ -80,14 +81,6 @@ export default {
   position: absolute;
   top: calc(50% - 210px);
   right: 200px;
-  // background-color: aliceblue;
-
-  // .system-logo {
-  //   margin: 0 auto;
-  //   display: block;
-  //   width: 100px;
-  //   height: 100px;
-  // }
 
   .system-title {
     font-size: 48px;

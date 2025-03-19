@@ -32,7 +32,9 @@
         </div>
 
         <!-- 系统标题 -->
-        <div class="system-title">{{ systemTitle }}</div>
+        <div class="system-title">
+          <span>{{ systemTitle }}</span>
+        </div>
 
         <!-- 作战时间 -->
         <div class="titlebar-time">
@@ -182,7 +184,7 @@ export default {
     user-select: none;
 
     .title-menu {
-      width: 30%;
+      width: 31%;
       height: 40px;
       display: flex;
       align-items: center;
@@ -227,17 +229,18 @@ export default {
       align-self: center;
       align-items: center;
       justify-content: center;
-      width: 38%;
+      width: 36%;
       height: 100%;
 
       .system-title {
-        width: 320px;
+        width: calc(100% - 300px);
         display: flex;
         align-items: center;
         font-size: 26px;
         letter-spacing: 5px;
         color: #ffffff;
         font-weight: bold;
+        justify-content: center;
         align-self: center;
         text-align: center;
       }

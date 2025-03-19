@@ -6,14 +6,18 @@
       {{ userName }}
     </label>
 
-    <!-- 进入课题6.1数据中台页面 -->
-    <a class="icon-btn" href="javascript:void(0)" title="数据中台" target="_blank">
-      <img src="./assets/task01.svg" alt="数据中台" />
-    </a>
-
-    <!-- 进入课题6.2知识图谱页面 -->
-    <a class="icon-btn" href="javascript:void(0)" title="知识图谱" target="_blank">
-      <img src="./assets/task02.svg" alt="知识图谱" />
+    <a
+      class="icon-btn"
+      target="_blank"
+      v-for="(item, index) in menuQuickList"
+      :href="item.path"
+      :title="item.label"
+      :key="index"
+    >
+      <i v-if="item.iconType === 'fa'" class="user-icon fa" :class="`fa-${item.iconName}`" aria-hidden="true"></i>
+      <el-icon v-if="item.iconType === 'element'" class="user-icon">
+        <component :is="item.iconName" />
+      </el-icon>
     </a>
 
     <!-- 退出登录logout -->
@@ -24,17 +28,14 @@
 </template>
 
 <script>
-const SHUJUZHONGTAI = DOMAIN_CONFIG.SHUJUZHONGTAI;
-const ZHISHITUPU = DOMAIN_CONFIG.ZHISHITUPU;
-import { removeStorage } from "@/utils/storage.js";
+import { removeStorage, getStorage } from "@/utils/storage.js";
+const menuQuickList = SYSTEM_CONFIG.menuQuickList;
 
 export default {
   name: "SystemFunc",
   data() {
     return {
-      SHUJUZHONGTAI,
-      ZHISHITUPU,
-      userName: "项目六用户",
+      menuQuickList,
     };
   },
   methods: {
@@ -44,6 +45,16 @@ export default {
       this.$router.push({
         path: "/login",
       });
+    },
+  },
+  computed: {
+    userName() {
+      let username = getStorage("username");
+      if (!username) {
+        return "none";
+      }
+      // return username.slice(0, 1).toLocaleUpperCase();
+      return username.toLocaleUpperCase();
     },
   },
 };
@@ -60,36 +71,46 @@ export default {
   justify-content: end;
 
   .user-box {
+    // width: 28px;
+    padding: 0 10px;
+    height: 28px;
     font-size: 16px;
     font-weight: bold;
-    line-height: 24px;
     color: #ffffff;
-
-    .user-icon {
-      font-size: 18px;
-    }
+    border-radius: 4px;
+    background-color: #ad5a18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ffffff;
   }
 
   .icon-btn {
     width: 28px;
     height: 28px;
-    line-height: 30px;
     border-radius: 4px;
-    text-align: center;
     cursor: pointer;
     background-color: #0a95ab;
     padding: 3px;
     margin-left: 6px;
     color: #f7f7f7;
     transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    &:hover {
-      background-color: #ad5a18;
+    .user-icon {
+      font-size: 18px;
+      color: #ffffff;
     }
 
     img {
       width: 18px;
       height: 18px;
+    }
+
+    &:hover {
+      background-color: #ad5a18;
     }
   }
 }

@@ -71,10 +71,12 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const token = getStorage("token");
+  const username = getStorage("username");
+
   if (to.name === "Login") {
     next();
   } else {
-    if (token) {
+    if (token && username) {
       next();
     } else {
       next({

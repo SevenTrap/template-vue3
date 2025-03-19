@@ -27,3 +27,8 @@
     outline: none;
   }
 }
+
+.cesium-viewer-toolbar-left-bottom .cesium-baseLayerPicker-dropDown {
+  left: auto !important;
+  right: 40px !important;
+}
