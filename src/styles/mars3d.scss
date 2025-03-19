@@ -1,0 +1,29 @@
+// 修改cesium原生按钮的位置
+.cesium-viewer-toolbar {
+  position: absolute !important;
+  bottom: 60px;
+  top: auto !important;
+  display: flex !important;
+  flex-direction: column;
+
+  .cesium-button,
+  .cesium-toolbar-button {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .cesium-baseLayerPicker-dropDown {
+    right: 45px;
+    bottom: 70px;
+    z-index: 99;
+  }
+}
+
+.mars3d-clockAnimate {
+  .time {
+    color: #f7f7f7;
+  }
+  #txt-clockAnimate-speed {
+    outline: none;
+  }
+}

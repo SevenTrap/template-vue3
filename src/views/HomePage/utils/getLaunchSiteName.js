@@ -1,0 +1,73 @@
+export const getLaunchSiteName = (code) => {
+  switch (code) {
+    case "AFETR":
+      return "美国佛罗里达州空军东部试验场";
+    case "AFWTR":
+      return "美国加州空军西部试验场";
+    case "CAS":
+      return "Canaries Airspace";
+    case "DLS":
+      return "俄罗斯Dombarovskiy发射场";
+    case "ERAS":
+      return "东部领空范围";
+    case "FRGUI":
+      return "法属圭亚那库鲁的欧洲太空港";
+    case "HGSTR":
+      return "阿尔及利亚的Hammaguira空间轨道靶场";
+    case "JSC":
+      return "中国酒泉航天中心";
+    case "KODAK":
+      return "美国阿拉斯加科迪亚克发射中心";
+    case "KSCUT":
+      return "日本内浦航天中心";
+    case "KWAJ":
+      return "美国陆军夸贾林环礁";
+    case "KYMSC":
+      return "俄罗斯Kapustin Yar导弹和太空综合体";
+    case "NSC":
+      return "韩国罗老宇航中心";
+    case "PLMSC":
+      return "俄罗斯普列谢茨克导弹和太空综合体";
+    case "RLLB":
+      return "火箭实验室发射基地";
+    case "SEAL":
+      return "海上发射平台(流动)";
+    case "SEMLS":
+      return "伊朗塞姆南卫星发射场";
+    case "SMTS":
+      return "伊朗沙赫鲁德导弹试验场";
+    case "SNMLP":
+      return "印度洋(肯尼亚)圣马可发射平台";
+    case "SRILR":
+      return "印度萨迪什·达万航天中心";
+    case "SUBL":
+      return "潜艇发射平台(移动式)";
+    case "SVOBO":
+      return "俄罗斯Svobodnyy发射中心";
+    case "TAISC":
+      return "中国太原航天中心";
+    case "TANSC":
+      return "日本种子岛宇宙中心";
+    case "TYMSC":
+      return "哈萨克斯坦秋拉坦导弹和航天中心";
+    case "VOSTO":
+      return "俄罗斯东方港航天器发射场";
+    case "WLPIS":
+      return "美国弗吉尼亚州瓦勒普斯岛";
+    case "WOMRA":
+      return "澳大利亚Woomera";
+    case "WRAS":
+      return "西方领空范围";
+    case "WSC":
+      return "中国文昌卫星发射场";
+    case "XICLF":
+      return "中国西昌发射场";
+    case "YAVNE":
+      return "以色列Yavne发射设施";
+    case "YUN":
+      return "朝鲜云松发射场";
+    case "UNK":
+      return "未知的";
+  }
+  return code;
+};
