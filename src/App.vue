@@ -3,12 +3,11 @@
 </template>
 
 <style lang="scss">
-.cesium-viewer-toolbar {
-  top: 10px;
-  left: auto;
-  right: 10px;
-}
-#txt-clockAnimate-time {
+.info {
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  border: 1px solid #ffffff;
   color: #ffffff;
+  padding: 5px;
+  width: 320px;
 }
 </style>
