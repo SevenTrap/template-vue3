@@ -5,13 +5,13 @@ import LayoutPage from "../layout/index.vue";
 import HomePage from "@/views/HomePage/index.vue";
 import AboutPage from "@/views/AboutPage/index.vue";
 import LoginPage from "@/views/LoginPage/index.vue";
-import MenuThree from "@/views/MenuThree/index.vue";
+import ServerList from "@/views/ServerList/index.vue";
 import MenuFour from "@/views/MenuFour/index.vue";
 
 const routes = [
   {
     path: "/",
-    redirect: "/layout/homepage",
+    redirect: "/layout/ServerList",
   },
   {
     path: "/login",
@@ -22,7 +22,7 @@ const routes = [
   {
     path: "/layout",
     name: "Layout",
-    redirect: "/layout/homepage",
+    redirect: "/layout/ServerList",
     component: LayoutPage,
     children: [
       {
@@ -30,7 +30,7 @@ const routes = [
         name: "HomePage",
         component: HomePage,
         meta: {
-          label: "综合数据展示",
+          label: "数据预览",
           roles: [],
         },
       },
@@ -44,11 +44,11 @@ const routes = [
         },
       },
       {
-        path: "/layout/menuthree",
-        name: "MenuThree",
-        component: MenuThree,
+        path: "/layout/ServerList",
+        name: "ServerList",
+        component: ServerList,
         meta: {
-          label: "菜单三",
+          label: "服务列表",
           roles: [],
         },
       },

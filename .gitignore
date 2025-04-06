@@ -21,6 +21,13 @@ dist*.rar
 *dist*.zip
 *dist*.rar
 
+earth
+earth-ssr
+earth*.zip
+earth*.rar
+*earth*.zip
+*earth*.rar
+
 # Editor directories and files
 .idea
 .DS_Store

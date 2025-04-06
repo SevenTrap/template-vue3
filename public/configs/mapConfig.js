@@ -20,8 +20,8 @@ const MAP_CONFIG = {
     },
     cameraController: {
       zoomFactor: 3.0,
-      minimumZoomDistance: 1,
-      maximumZoomDistance: 30000000,
+      // minimumZoomDistance: 1,
+      // maximumZoomDistance: 30000000,
       enableRotate: true,
       enableZoom: true,
     },
@@ -37,7 +37,7 @@ const MAP_CONFIG = {
     },
     mouseDownView: true,
     fullscreenButton: false,
-    baseLayerPicker: true,
+    baseLayerPicker: false,
     sceneModePicker: false,
     navigationHelpButton: false,
     contextmenu: {
@@ -55,13 +55,13 @@ const MAP_CONFIG = {
     },
   },
   basemaps: [
-    {
-      name: "天地图影像",
-      icon: "https://data.mars3d.cn/img/thumbnail/basemap/tdt_img.png",
-      type: "tdt",
-      layer: "img_d",
-      show: true,
-    },
+    // {
+    //   name: "天地图影像",
+    //   icon: "https://data.mars3d.cn/img/thumbnail/basemap/tdt_img.png",
+    //   type: "tdt",
+    //   layer: "img_d",
+    //   show: true,
+    // },
     // {
     //   name: "基础底图(矢量)",
     //   icon: "/assets/mapConfig/shiliang_img.png",

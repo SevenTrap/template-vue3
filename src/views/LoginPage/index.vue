@@ -57,6 +57,16 @@ export default {
         return false;
       }
 
+      if (username !== "admin" || password !== "123456") {
+        this.$message({
+          type: "error",
+          message: "账号密码错误！",
+          duration: 1000,
+        });
+
+        return false;
+      }
+
       setStorage("token", true);
       setStorage("username", username);
 
