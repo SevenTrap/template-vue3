@@ -3,10 +3,9 @@ import { getStorage } from "../utils/storage";
 
 import LayoutPage from "../layout/index.vue";
 import HomePage from "@/views/HomePage/index.vue";
-import AboutPage from "@/views/AboutPage/index.vue";
+import ServerPublish from "@/views/ServerPublish/index.vue";
 import LoginPage from "@/views/LoginPage/index.vue";
 import ServerList from "@/views/ServerList/index.vue";
-import MenuFour from "@/views/MenuFour/index.vue";
 
 const routes = [
   {
@@ -35,11 +34,11 @@ const routes = [
         },
       },
       {
-        path: "/layout/aboutpage",
-        name: "AboutPage",
-        component: AboutPage,
+        path: "/layout/ServerPublish",
+        name: "ServerPublish",
+        component: ServerPublish,
         meta: {
-          label: "数据处理进度",
+          label: "服务发布",
           roles: [],
         },
       },
@@ -49,15 +48,6 @@ const routes = [
         component: ServerList,
         meta: {
           label: "服务列表",
-          roles: [],
-        },
-      },
-      {
-        path: "/layout/menufour",
-        name: "MenuFour",
-        component: MenuFour,
-        meta: {
-          label: "菜单四",
           roles: [],
         },
       },

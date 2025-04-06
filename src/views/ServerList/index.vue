@@ -11,14 +11,14 @@
         <el-option key="3dtiles" value="3dtiles">3dtiles</el-option>
       </el-select>
 
-      <el-input class="search-item" v-model="server_name" type="text" placeholder="图层名称" clearable />
+      <el-input class="search-item" v-model="server_name" type="text" placeholder="数据名称" clearable />
 
       <el-button class="search-btn" type="primary" @click="getServerList"> 搜索 </el-button>
     </div>
 
-    <div class="search-right">
+    <!-- <div class="search-right">
       <el-button type="primary" @click="addServer">添加服务</el-button>
-    </div>
+    </div> -->
   </div>
 
   <div class="server-list">
@@ -26,24 +26,28 @@
       <thead>
         <tr>
           <th width="5%">序号</th>
-          <th width="15%">服务名称</th>
+          <th width="10%">数据ID</th>
+          <th width="10%">服务名称</th>
           <th width="10%">服务类型</th>
           <th width="15%">数据名称</th>
+          <th width="5%">数据格式</th>
           <th width="15%">服务地址</th>
-          <th width="25%">数据路径</th>
+          <th width="20%">数据路径</th>
           <th width="10%">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr class="server-list-item" v-for="(item, index) in serverList" :key="index">
           <td class="list-item">{{ index + 1 + page_size * (page_num - 1) }}</td>
+          <td class="list-item">{{ item.id }}</td>
           <td class="list-item">{{ item.server_name }}</td>
           <td class="list-item">{{ item.server_type }}</td>
           <td class="list-item">{{ item.layer }}</td>
-          <td class="list-item">{{ item.server_path }}</td>
-          <td class="list-item">{{ item.path }}</td>
+          <td class="list-item">{{ item.image_type }}</td>
+          <td class="list-item">{{ `http://${serverIP}:${serverPort}${item.server_path}` }}</td>
+          <td class="list-item" :tile="item.path">{{ item.path }}</td>
           <td class="list-item">
-            <el-button type="info" @click="editServer(item)" link>编辑</el-button>
+            <!-- <el-button type="info" @click="editServer(item)" link>编辑</el-button> -->
             <el-button type="danger" @click="deleteServer(item)" link>删除</el-button>
             <el-button type="primary" @click="viewServer(item)" link>查看</el-button>
           </td>
@@ -62,12 +66,14 @@
 </template>
 
 <script>
-import { queryServerList } from "./apis/index";
+import { queryServerList, deleteServerById, queryIP } from "./apis/index";
 export default {
   name: "ServerList",
   data() {
     return {
       serverList: [],
+      serverIP: null,
+      serverPort: null,
       total: 0,
       server_type: "全部",
       server_name: null,
@@ -76,14 +82,22 @@ export default {
     };
   },
   mounted() {
+    queryIP().then((res) => {
+      if (res.code == 200) {
+        this.serverIP = res.data.ip;
+        this.serverPort = res.data.port;
+      } else {
+        this.$message.error("获取IP失败");
+      }
+    });
     this.getServerList();
   },
+
   methods: {
     async getServerList() {
       try {
         const response = await queryServerList({
           server_type: this.server_type === "全部" ? "" : this.server_type,
-          server_name: this.server_name,
           layer: this.server_name,
           page_size: this.page_size,
           page_num: this.page_num,
@@ -103,12 +117,39 @@ export default {
       }
     },
 
-    addServer() {
-      this.$router.push({ path: "/addServer" });
+    deleteServer(item) {
+      this.$confirm("是否删除该服务？", "提示", {
+        type: "warning",
+      })
+        .then(() => {
+          deleteServerById({ id: item.id })
+            .then((res) => {
+              if (res.code !== 200) {
+                this.$message.error(res.message);
+                return;
+              }
+
+              this.$message({
+                type: "success",
+                message: "删除成功",
+              });
+
+              this.getServerList();
+            })
+            .catch((error) => {
+              console.error("Error deleting server:", error);
+            });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除",
+          });
+        });
     },
 
     viewServer(item) {
-      this.$router.push({ path: "/layout/homepage", query: { id: item.id } });
+      this.$router.push({ path: "/layout/homepage", target: "_blank", query: { id: item.id } });
     },
   },
 };
@@ -153,7 +194,6 @@ export default {
 
 .server-list {
   padding: 20px;
-  width: 1440px;
   font-size: 16px;
   margin: 0 auto;
 

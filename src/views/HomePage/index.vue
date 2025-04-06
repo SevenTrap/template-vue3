@@ -111,7 +111,7 @@ export default {
         url: `${MAP_SERVER_URL}${this.server_path}`,
         layer: this.layer,
         style: "default",
-        format: `image/${this.image_type}`,
+        format: `${this.image_type}`,
         version: "1.0.0",
         crs: "EPSG:4326", // 必须填写
         tileMatrixSetID: "EPSG:4326", // 必须填写
@@ -121,13 +121,13 @@ export default {
       this.currentLayer = tileLayer;
     },
 
-    loadWmts3857Layer(url, name) {
+    loadWmts3857Layer() {
       const tileLayer = new mars3d.layer.WmtsLayer({
         name: this.server_name || "WMTS3857", // 显示的图层名称
         url: `${MAP_SERVER_URL}${this.server_path}`,
         layer: this.layer,
         style: "default",
-        format: `image/${this.image_type}`,
+        format: `${this.image_type}`,
         version: "1.0.0",
         crs: "EPSG:3857", // 必须填写
         tileMatrixSetID: "EPSG:3857", // 必须填写
@@ -137,10 +137,12 @@ export default {
       this.currentLayer = tileLayer;
     },
 
-    load3dTilesLayer(url, name) {
+    load3dTilesLayer() {
+      console.log(`${MAP_SERVER_URL}${this.server_path}/tileset.json`);
+
       const tiles3dLayer = new mars3d.layer.TilesetLayer({
-        name: name || "3D Tiles",
-        url: url,
+        name: this.server_name || "3DTILES", // 显示的图层名称
+        url: `${MAP_SERVER_URL}${this.server_path}/${this.layer}/tileset.json`,
         maximumScreenSpaceError: 1,
         maximumMemoryUsage: 1024,
         flyTo: true,

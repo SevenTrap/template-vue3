@@ -8,3 +8,11 @@ export const queryServerList = (params) => {
 export const queryServerById = (param) => {
   return get("/server/getServerById", param);
 };
+
+export const deleteServerById = (param) => {
+  return get("/server/deleteServer", param);
+};
+
+export const queryIP = () => {
+  return get("/getIP");
+};
