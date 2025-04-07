@@ -1,5 +1,5 @@
 <template>
-  <div class="header-placeholder"></div>
+  <h1>ceshi</h1>
 </template>
 
 <script>

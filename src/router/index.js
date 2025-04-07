@@ -30,7 +30,7 @@ const routes = [
         name: "HomePage",
         component: HomePage,
         meta: {
-          label: "综合数据展示",
+          label: "系统首页",
           roles: [],
         },
       },
@@ -39,7 +39,7 @@ const routes = [
         name: "AboutPage",
         component: AboutPage,
         meta: {
-          label: "数据处理进度",
+          label: "关于我们",
           roles: [],
         },
       },

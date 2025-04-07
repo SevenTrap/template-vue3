@@ -1,5 +1,5 @@
 <template>
-  <div class="header-placeholder"></div>
+  <h1>ceshi</h1>
 </template>
 
 <script>
@@ -15,9 +15,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.header-placeholder {
-  width: 100vw;
-  height: 85px;
-}
-</style>
+<style lang="scss" scoped></style>
