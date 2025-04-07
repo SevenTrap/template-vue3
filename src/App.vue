@@ -2,7 +2,7 @@
   <RouterView />
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .page-header-placeholder {
   width: 100vw;
   height: 85px;
