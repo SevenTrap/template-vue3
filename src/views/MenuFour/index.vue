@@ -1,4 +1,5 @@
 <template>
+  <div class="page-header-placeholder"></div>
   <h1>ceshi</h1>
 </template>
 
