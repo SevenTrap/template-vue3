@@ -3,7 +3,8 @@ import { setStorage, getStorage, removeStorage } from "@/utils/storage";
 
 // 创建axios实例
 const http = axios.create({
-  baseURL: DOMAIN_CONFIG.MAP_SERVER_URL, // 设置基础路径
+  // baseURL: DOMAIN_CONFIG.MAP_SERVER_URL, // 设置基础路径
+  baseURL: "", // 设置基础路径
   timeout: 30000, // 请求超时时间
 });
 
