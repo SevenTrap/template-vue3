@@ -43,7 +43,7 @@ const MAP_CONFIG = {
     contextmenu: {
       hasDefault: true,
     },
-    timeline: false,
+    timeline: true,
     clockAnimate: {
       enabled: false,
       format: "yyyy-MM-dd HH:mm:ss",

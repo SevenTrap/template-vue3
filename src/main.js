@@ -6,7 +6,7 @@ import * as ElementPlusIcons from "@element-plus/icons-vue";
 import "element-plus/dist/index.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./styles/elementPlus/themeDark.css";
-import "./styles/elementPlus/themeDark.css";
+import "./styles/elementPlus/themeLight.css";
 import "./styles/index.scss";
 
 import router from "./router/index";

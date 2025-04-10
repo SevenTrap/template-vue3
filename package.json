@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 5175 --open",
+    "dev": "vite --host 0.0.0.0 --open",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -15,9 +15,11 @@
     "@turf/turf": "^7.2.0",
     "@vueuse/components": "^13.0.0",
     "@vueuse/core": "^13.0.0",
+    "animejs": "^4.0.1",
     "axios": "^1.8.3",
     "cesium": "^1.127.0",
     "clipboard": "^2.0.11",
+    "d3": "^7.9.0",
     "dayjs": "^1.11.13",
     "echarts": "^5.6.0",
     "echarts-gl": "^2.0.9",

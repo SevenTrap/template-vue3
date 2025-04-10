@@ -1,4 +1,7 @@
 <template>
+  <!-- 页头占位：page-header-placeholder -->
+  <div class="page-header-placeholder"></div>
+
   <div ref="earthContainer" class="earth-container"></div>
 </template>
 
@@ -28,6 +31,6 @@ export default {
 <style lang="scss" scoped>
 .earth-container {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 85px);
 }
 </style>

@@ -1,63 +1,48 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import { getStorage } from "../utils/storage";
 
+import LoginPage from "@/views/LoginPage/index.vue";
 import LayoutPage from "../layout/index.vue";
 import HomePage from "@/views/HomePage/index.vue";
-import AboutPage from "@/views/AboutPage/index.vue";
-import LoginPage from "@/views/LoginPage/index.vue";
-import MenuThree from "@/views/MenuThree/index.vue";
-import MenuFour from "@/views/MenuFour/index.vue";
+import TemplatePage from "@/views/TemplatePage/index.vue";
 
 const routes = [
   {
     path: "/",
-    redirect: "/layout/homepage",
+    redirect: "/layout/homePage",
   },
   {
     path: "/login",
     name: "Login",
     component: LoginPage,
   },
-
   {
     path: "/layout",
-    name: "Layout",
-    redirect: "/layout/homepage",
+    redirect: "/layout/homePage",
     component: LayoutPage,
     children: [
       {
-        path: "/layout/homepage",
+        path: "/layout/homePage",
         name: "HomePage",
         component: HomePage,
         meta: {
-          label: "综合数据展示",
+          label: "系统首页",
           roles: [],
         },
       },
+    ],
+  },
+  {
+    path: "/layout",
+    redirect: "/layout/templatePage",
+    component: LayoutPage,
+    children: [
       {
-        path: "/layout/aboutpage",
-        name: "AboutPage",
-        component: AboutPage,
+        path: "/layout/TemplatePage",
+        name: "TemplatePage",
+        component: TemplatePage,
         meta: {
-          label: "数据处理进度",
-          roles: [],
-        },
-      },
-      {
-        path: "/layout/menuthree",
-        name: "MenuThree",
-        component: MenuThree,
-        meta: {
-          label: "菜单三",
-          roles: [],
-        },
-      },
-      {
-        path: "/layout/menufour",
-        name: "MenuFour",
-        component: MenuFour,
-        meta: {
-          label: "菜单四",
+          label: "模板页面",
           roles: [],
         },
       },

@@ -22,6 +22,11 @@ body,
   position: relative;
 }
 
+.page-header-placeholder {
+  width: 100vw;
+  height: 85px;
+}
+
 // 设置导航栏时间字体样式
 @import url("./fontFamily/font.scss");
 @import url("./mars3d.scss");

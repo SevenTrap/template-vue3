@@ -53,7 +53,6 @@ export default {
       if (!username) {
         return "none";
       }
-      // return username.slice(0, 1).toLocaleUpperCase();
       return username.toLocaleUpperCase();
     },
   },
