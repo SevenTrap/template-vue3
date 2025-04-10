@@ -1,9 +1,8 @@
 import { get, post, del, put } from "@/utils/http";
 const MAP_SERVER_URL = DOMAIN_CONFIG.MAP_SERVER_URL;
 
-// 根据服务ID获取服务信息
-export const queryServerById = (param) => {
-  return get(`${MAP_SERVER_URL}/server/getServerById`, param);
+export const addServer = (param) => {
+  return get(`${MAP_SERVER_URL}/server/addServer`, param);
 };
 
 export const queryIP = () => {
