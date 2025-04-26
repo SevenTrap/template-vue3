@@ -1,9 +1,9 @@
 {
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "editor.rulers": [80, 120],
+  "editor.rulers": [80, 160],
   "editor.wordWrap": "off",
-  "prettier.printWidth": 120,
+  "prettier.printWidth": 160,
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

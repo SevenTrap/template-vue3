@@ -21,7 +21,7 @@ const MAP_CONFIG = {
     cameraController: {
       zoomFactor: 3.0,
       minimumZoomDistance: 1,
-      maximumZoomDistance: 30000000,
+      maximumZoomDistance: 300000000,
       enableRotate: true,
       enableZoom: true,
     },
@@ -31,25 +31,36 @@ const MAP_CONFIG = {
     },
   },
   control: {
-    homeButton: true,
+    homeButton: {
+      enabled: true,
+      icon: "/assets/mapConfig/home.svg",
+    },
+    fullscreenButton: {
+      enabled: false,
+      icon: "/assets/mapConfig/fullscreen.svg",
+    },
     zoom: {
+      zoomInIcon: "/assets/mapConfig/zoomIn.svg",
+      zoomOutIcon: "/assets/mapConfig/zoomOut.svg",
       enabled: true,
     },
     mouseDownView: true,
     fullscreenButton: false,
     baseLayerPicker: true,
-    sceneModePicker: false,
+    sceneModePicker: {
+      enabled: true,
+    },
     navigationHelpButton: false,
     contextmenu: {
       hasDefault: true,
     },
     timeline: true,
     clockAnimate: {
-      enabled: false,
+      enabled: true,
       format: "yyyy-MM-dd HH:mm:ss",
     },
     locationBar: {
-      fps: false,
+      fps: true,
       crs: "EPSG4326",
       crsDecimal: 0,
     },
